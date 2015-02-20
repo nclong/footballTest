@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &39384113
 GameObject:
@@ -124,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerName: 
   PlayerNum: 
-  Position: 0
+  Position: 1
   Weight: 0
   Strength: 0
   Acceleration: 0
@@ -197,8 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: 0
-  closeToTouchThreshold: 0
+  positionReachedThreshold: .150000006
+  closeToTouchThreshold: .150000006
   Football: {fileID: 0}
 --- !u!1 &45106817
 GameObject:
@@ -375,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ba13f6a6f3863454c9fe7a4dfea99bf9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -416,7 +415,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &294291670
@@ -430,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9dc5546908ea489397bc83b13057944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentReceiver: {fileID: 0}
+  ParentReceiver: {fileID: 2121270029}
   Offset: {x: 0, y: 0, z: 0}
   distanceAdjustedOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &352028540
@@ -533,7 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerName: 
   PlayerNum: 
-  Position: 0
+  Position: 3
   Weight: 0
   Strength: 0
   Acceleration: 0
@@ -606,8 +605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: 0
-  closeToTouchThreshold: 0
+  positionReachedThreshold: .150000006
+  closeToTouchThreshold: .150000006
   Football: {fileID: 0}
 --- !u!1 &429399240
 GameObject:
@@ -650,9 +649,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theFootball: {fileID: 932477449}
   FootBallOffset: {x: 0, y: 0, z: 0}
-  WRXIndicator: {fileID: 0}
-  WRYIndicator: {fileID: 0}
-  WRZIndicator: {fileID: 0}
+  WRXIndicator: {fileID: 623482467}
+  WRYIndicator: {fileID: 1677120135}
+  WRZIndicator: {fileID: 294291667}
 --- !u!1 &583606807
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9dc5546908ea489397bc83b13057944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentReceiver: {fileID: 0}
+  ParentReceiver: {fileID: 1776305986}
   Offset: {x: 0, y: 0, z: 0}
   distanceAdjustedOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &623482470
@@ -852,14 +851,14 @@ MonoBehaviour:
           m_MethodName: OnIndicatorTouch
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 623482465}
+            m_ObjectArgument: {fileID: 1776305986}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &924773364
@@ -1004,12 +1003,12 @@ Rigidbody:
   m_GameObject: {fileID: 932477449}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: .100000001
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 96
   m_CollisionDetection: 0
 --- !u!114 &932477455
 MonoBehaviour:
@@ -1023,6 +1022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inAir: 0
+  releaseFrames: 6
 --- !u!1 &932853704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerName: 
   PlayerNum: 
-  Position: 0
+  Position: 4
   Weight: 0
   Strength: 0
   Acceleration: 0
@@ -1206,8 +1206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: 0
-  closeToTouchThreshold: 0
+  positionReachedThreshold: .150000006
+  closeToTouchThreshold: .150000006
   Football: {fileID: 0}
 --- !u!1 &967997016
 GameObject:
@@ -1526,8 +1526,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  ignoreReversedGraphics: 1
+  blockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1580,12 +1580,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1c306d9cc79466682bff96d3a2315e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WRXIndicator: {fileID: 0}
-  WRYIndicator: {fileID: 0}
-  WRZIndicator: {fileID: 0}
-  RedSprite: {fileID: 0}
-  YellowSprite: {fileID: 0}
-  GreenSprite: {fileID: 0}
+  WRXIndicator: {fileID: 623482467}
+  WRYIndicator: {fileID: 1677120135}
+  WRZIndicator: {fileID: 294291667}
+  RedSprite: {fileID: 21300000, guid: afbb018cab4b5475293d8b51810fbc1e, type: 3}
+  YellowSprite: {fileID: 21300000, guid: e56e53849f3454343b44a0f8bbae4f8c, type: 3}
+  GreenSprite: {fileID: 21300000, guid: ba13f6a6f3863454c9fe7a4dfea99bf9, type: 3}
 --- !u!1 &1372080811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,7 +1696,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1372080818
 MonoBehaviour:
@@ -1709,8 +1709,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: 0
-  closeToTouchThreshold: 0
+  positionReachedThreshold: .150000006
+  closeToTouchThreshold: .150000006
   Football: {fileID: 0}
 --- !u!1 &1516576280
 GameObject:
@@ -1887,7 +1887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ba13f6a6f3863454c9fe7a4dfea99bf9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1921,14 +1921,14 @@ MonoBehaviour:
           m_MethodName: OnIndicatorTouch
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1677120133}
+            m_ObjectArgument: {fileID: 1759575330}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &1677120138
@@ -1942,7 +1942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9dc5546908ea489397bc83b13057944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentReceiver: {fileID: 0}
+  ParentReceiver: {fileID: 1759575330}
   Offset: {x: 0, y: 0, z: 0}
   distanceAdjustedOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1759575330
@@ -1994,16 +1994,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerName: 
   PlayerNum: 
-  Position: 0
+  Position: 6
   Weight: 0
-  Strength: 0
-  Acceleration: 0
-  Speed: 0
-  Awareness: 0
-  Agility: 0
-  ThrowingPower: 0
-  ThrowingSpeed: 0
-  ThrowingAccuracy: 0
+  Strength: 82
+  Acceleration: 81
+  Speed: 85
+  Awareness: 82
+  Agility: 81
+  ThrowingPower: 79
+  ThrowingSpeed: 79
+  ThrowingAccuracy: 79
 --- !u!23 &1759575333
 Renderer:
   m_ObjectHideFlags: 0
@@ -2067,8 +2067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: 0
-  closeToTouchThreshold: 0
+  positionReachedThreshold: .150000006
+  closeToTouchThreshold: .150000006
   Football: {fileID: 0}
 --- !u!1 &1776305986
 GameObject:
@@ -2119,7 +2119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerName: 
   PlayerNum: 
-  Position: 0
+  Position: 5
   Weight: 0
   Strength: 0
   Acceleration: 0
@@ -2192,8 +2192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: 0
-  closeToTouchThreshold: 0
+  positionReachedThreshold: .150000006
+  closeToTouchThreshold: .150000006
   Football: {fileID: 0}
 --- !u!1 &1787810119
 GameObject:
@@ -2285,14 +2285,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1626e5f437934a018c06b712bef9954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerC: {fileID: 0}
-  PlayerTE: {fileID: 0}
-  PlayerG: {fileID: 0}
-  PlayerQB: {fileID: 0}
-  PlayerHB: {fileID: 0}
-  PlayerWX: {fileID: 0}
-  PlayerWZ: {fileID: 0}
-  PlayerWY: {fileID: 0}
+  PlayerC: {fileID: 944390915}
+  PlayerTE: {fileID: 39384113}
+  PlayerG: {fileID: 385278808}
+  PlayerQB: {fileID: 1372080811}
+  PlayerHB: {fileID: 2110225555}
+  PlayerWX: {fileID: 1776305986}
+  PlayerWZ: {fileID: 2121270029}
+  PlayerWY: {fileID: 1759575330}
 --- !u!4 &1827549001
 Transform:
   m_ObjectHideFlags: 0
@@ -2520,7 +2520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerName: 
   PlayerNum: 
-  Position: 0
+  Position: 2
   Weight: 0
   Strength: 0
   Acceleration: 0
@@ -2593,8 +2593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: 0
-  closeToTouchThreshold: 0
+  positionReachedThreshold: .150000006
+  closeToTouchThreshold: .150000006
   Football: {fileID: 0}
 --- !u!1 &2121270029
 GameObject:
@@ -2645,7 +2645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerName: 
   PlayerNum: 
-  Position: 0
+  Position: 7
   Weight: 0
   Strength: 0
   Acceleration: 0
@@ -2718,6 +2718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: 0
-  closeToTouchThreshold: 0
+  positionReachedThreshold: .150000006
+  closeToTouchThreshold: .150000006
   Football: {fileID: 0}

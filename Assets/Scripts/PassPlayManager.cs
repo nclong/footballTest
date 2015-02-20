@@ -41,18 +41,18 @@ public class PassPlayManager : MonoBehaviour {
         if( !releasedBall )
         {
             theFootball.transform.parent = players[PlayerPosition.QB].transform;
-            theFootball.transform.localPosition = FootBallOffset;
+            //theFootball.transform.localPosition = FootBallOffset;
         }
 		frameCount++;
-		if( frameCount >= WRXReadyFrames )
+		if( frameCount >= WRXReadyFrames  && !releasedBall)
 		{
 			WRXIndicator.gameObject.SetActive(true);
 		}
-		if( frameCount >= WRYReadyFrames )
+		if( frameCount >= WRYReadyFrames && !releasedBall)
 		{
 			WRYIndicator.gameObject.SetActive(true);
 		}
-		if( frameCount >= WRZReadyFrames )
+		if( frameCount >= WRZReadyFrames && !releasedBall)
 		{
 			WRZIndicator.gameObject.SetActive(true);
 		}
@@ -77,25 +77,31 @@ public class PassPlayManager : MonoBehaviour {
 
 	}
 
-	public void OnIndicatorTouch(GameObject Indicator)
+	public void OnIndicatorTouch(GameObject Receiver)
 	{
-		WRXIndicator.gameObject.SetActive(false);
-		WRYIndicator.gameObject.SetActive(false);
-		WRZIndicator.gameObject.SetActive(false);
+		if( readyToPass)
+		{
+			WRXIndicator.gameObject.SetActive(false);
+			WRYIndicator.gameObject.SetActive(false);
+			WRZIndicator.gameObject.SetActive(false);
 
-		ReceiverIndicator receiverIndicator = Indicator.GetComponent<ReceiverIndicator>();
-        GameObject Receiver = receiverIndicator.ParentReceiver;
-        Vector3 qbToReceiver = Receiver.transform.position - players[PlayerPosition.QB].transform.position;
-        Vector3 throwDirection = new Vector3(qbToReceiver.x, 1f, qbToReceiver.z).normalized;
-        float maxBallSpeed = 40f;
-        float estimatedTime = ( -( maxBallSpeed * 0.9f ) + Mathf.Sqrt( ( maxBallSpeed * 0.9f ) * ( maxBallSpeed * 0.9f ) + 2f * Constants.BallAirDrag.magnitude * qbToReceiver.magnitude ) ) / Constants.BallAirDrag.magnitude;
-        Vector3 guessPosition = Receiver.transform.position + Receiver.rigidbody.velocity * estimatedTime;
-        qbToReceiver = guessPosition - players[PlayerPosition.QB].transform.position;
-        theFootball.rigidbody.velocity = new Vector3( qbToReceiver.x, 1f, qbToReceiver.z ).normalized * maxBallSpeed;
-        theFootball.transform.parent = null;
-        theFootball.GetComponent<BallFlight>().inAir = true;
-        theFootball.rigidbody.isKinematic = false;
-        theFootball.collider.isTrigger = false;
+			releasedBall = true;
+	
+        	float time = estimatePassTime(Receiver.transform.position);
+        	Vector3 dest = Receiver.transform.position + Receiver.rigidbody.velocity * time;
+        	Vector3 qbToDest = dest - players[PlayerPosition.QB].transform.position;
+        	Vector3 ballVelocity = (qbToDest - 0.5f * Physics.gravity * time * time) / time;
+        	theFootball.rigidbody.velocity = ballVelocity;
+        	theFootball.transform.parent = null;
+        	theFootball.rigidbody.useGravity = true;
+        	theFootball.GetComponent<BallFlight>().inAir = true;
+    	}
+	}
+
+	private float estimatePassTime(Vector3 receiverPos)
+	{
+		float distance = Vector3.Distance(receiverPos, players[PlayerPosition.QB].transform.position);
+		return distance / 10f;
 	}
 
 }
