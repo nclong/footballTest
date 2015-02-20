@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &39384113
 GameObject:
@@ -121,15 +122,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53b52f9b8b274f999c93d71a6cd4be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: Bo Jackson
+  PlayerName: 
   PlayerNum: 
-  Position: 1
-  Weight: 227
+  Position: 0
+  Weight: 0
   Strength: 0
-  Acceleration: 85
-  Speed: 90
+  Acceleration: 0
+  Speed: 0
   Awareness: 0
-  Agility: 31
+  Agility: 0
   ThrowingPower: 0
   ThrowingSpeed: 0
   ThrowingAccuracy: 0
@@ -196,8 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: .00999999978
-  closeToTouchThreshold: .100000001
+  positionReachedThreshold: 0
+  closeToTouchThreshold: 0
   Football: {fileID: 0}
 --- !u!1 &45106817
 GameObject:
@@ -530,15 +531,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53b52f9b8b274f999c93d71a6cd4be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: Bo Jackson
+  PlayerName: 
   PlayerNum: 
   Position: 0
-  Weight: 227
+  Weight: 0
   Strength: 0
-  Acceleration: 85
-  Speed: 90
+  Acceleration: 0
+  Speed: 0
   Awareness: 0
-  Agility: 31
+  Agility: 0
   ThrowingPower: 0
   ThrowingSpeed: 0
   ThrowingAccuracy: 0
@@ -605,8 +606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: .00999999978
-  closeToTouchThreshold: .100000001
+  positionReachedThreshold: 0
+  closeToTouchThreshold: 0
   Football: {fileID: 0}
 --- !u!1 &429399240
 GameObject:
@@ -647,6 +648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055055b3ce77045128a1169d30c1bf0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theFootball: {fileID: 932477449}
+  FootBallOffset: {x: 0, y: 0, z: 0}
   WRXIndicator: {fileID: 0}
   WRYIndicator: {fileID: 0}
   WRZIndicator: {fileID: 0}
@@ -826,8 +829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9dc5546908ea489397bc83b13057944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentReceiver: {fileID: 1776305986}
-  Offset: {x: .600000024, y: .5, z: 0}
+  ParentReceiver: {fileID: 0}
+  Offset: {x: 0, y: 0, z: 0}
   distanceAdjustedOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &623482470
 MonoBehaviour:
@@ -933,13 +936,15 @@ GameObject:
   - 33: {fileID: 932477452}
   - 135: {fileID: 932477451}
   - 23: {fileID: 932477450}
+  - 54: {fileID: 932477454}
+  - 114: {fileID: 932477455}
   m_Layer: 0
   m_Name: Football
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &932477450
 Renderer:
   m_ObjectHideFlags: 0
@@ -967,7 +972,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 932477449}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: .5
@@ -986,11 +991,38 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 932477449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .345999986, y: 1.17299998, z: -6.22300005}
-  m_LocalScale: {x: .0500000007, y: .0299999993, z: .100000001}
+  m_LocalPosition: {x: .560000002, y: .465999991, z: .0890000015}
+  m_LocalScale: {x: .333333343, y: .199999988, z: .666666687}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1372080816}
+  m_RootOrder: 0
+--- !u!54 &932477454
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 932477449}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &932477455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 932477449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f0eab29aae9d04c8a26d4b4a23efe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inAir: 0
 --- !u!1 &932853704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,15 +1131,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53b52f9b8b274f999c93d71a6cd4be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: Bo Jackson
+  PlayerName: 
   PlayerNum: 
   Position: 0
-  Weight: 227
+  Weight: 0
   Strength: 0
-  Acceleration: 85
-  Speed: 90
+  Acceleration: 0
+  Speed: 0
   Awareness: 0
-  Agility: 31
+  Agility: 0
   ThrowingPower: 0
   ThrowingSpeed: 0
   ThrowingAccuracy: 0
@@ -1174,8 +1206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: .00999999978
-  closeToTouchThreshold: .100000001
+  positionReachedThreshold: 0
+  closeToTouchThreshold: 0
   Football: {fileID: 0}
 --- !u!1 &967997016
 GameObject:
@@ -1494,8 +1526,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1548,12 +1580,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1c306d9cc79466682bff96d3a2315e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WRXIndicator: {fileID: 623482467}
-  WRYIndicator: {fileID: 1677120135}
-  WRZIndicator: {fileID: 294291667}
-  RedSprite: {fileID: 21300000, guid: afbb018cab4b5475293d8b51810fbc1e, type: 3}
-  YellowSprite: {fileID: 21300000, guid: e56e53849f3454343b44a0f8bbae4f8c, type: 3}
-  GreenSprite: {fileID: 21300000, guid: afbb018cab4b5475293d8b51810fbc1e, type: 3}
+  WRXIndicator: {fileID: 0}
+  WRYIndicator: {fileID: 0}
+  WRZIndicator: {fileID: 0}
+  RedSprite: {fileID: 0}
+  YellowSprite: {fileID: 0}
+  GreenSprite: {fileID: 0}
 --- !u!1 &1372080811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,18 +1618,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53b52f9b8b274f999c93d71a6cd4be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: Bo Jackson
+  PlayerName: 
   PlayerNum: 
   Position: 0
   Weight: 227
-  Strength: 0
-  Acceleration: 85
-  Speed: 90
-  Awareness: 0
-  Agility: 31
-  ThrowingPower: 0
-  ThrowingSpeed: 0
-  ThrowingAccuracy: 0
+  Strength: 60
+  Acceleration: 60
+  Speed: 43
+  Awareness: 73
+  Agility: 75
+  ThrowingPower: 72
+  ThrowingSpeed: 62
+  ThrowingAccuracy: 75
 --- !u!23 &1372080813
 Renderer:
   m_ObjectHideFlags: 0
@@ -1647,7 +1679,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: .319999993, z: -6.50699997}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
-  m_Children: []
+  m_Children:
+  - {fileID: 932477453}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!54 &1372080817
@@ -1676,8 +1709,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: .125
-  closeToTouchThreshold: .100000001
+  positionReachedThreshold: 0
+  closeToTouchThreshold: 0
   Football: {fileID: 0}
 --- !u!1 &1516576280
 GameObject:
@@ -1959,15 +1992,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53b52f9b8b274f999c93d71a6cd4be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: Bo Jackson
+  PlayerName: 
   PlayerNum: 
-  Position: 6
-  Weight: 208
+  Position: 0
+  Weight: 0
   Strength: 0
-  Acceleration: 85
-  Speed: 90
+  Acceleration: 0
+  Speed: 0
   Awareness: 0
-  Agility: 66
+  Agility: 0
   ThrowingPower: 0
   ThrowingSpeed: 0
   ThrowingAccuracy: 0
@@ -2034,8 +2067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: .125
-  closeToTouchThreshold: .00999999978
+  positionReachedThreshold: 0
+  closeToTouchThreshold: 0
   Football: {fileID: 0}
 --- !u!1 &1776305986
 GameObject:
@@ -2084,15 +2117,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53b52f9b8b274f999c93d71a6cd4be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: Bo Jackson
+  PlayerName: 
   PlayerNum: 
-  Position: 1
-  Weight: 227
+  Position: 0
+  Weight: 0
   Strength: 0
-  Acceleration: 85
-  Speed: 90
+  Acceleration: 0
+  Speed: 0
   Awareness: 0
-  Agility: 31
+  Agility: 0
   ThrowingPower: 0
   ThrowingSpeed: 0
   ThrowingAccuracy: 0
@@ -2159,8 +2192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: .00999999978
-  closeToTouchThreshold: .100000001
+  positionReachedThreshold: 0
+  closeToTouchThreshold: 0
   Football: {fileID: 0}
 --- !u!1 &1787810119
 GameObject:
@@ -2252,14 +2285,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1626e5f437934a018c06b712bef9954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerC: {fileID: 944390915}
-  PlayerTE: {fileID: 39384113}
-  PlayerG: {fileID: 385278808}
-  PlayerQB: {fileID: 1372080811}
-  PlayerHB: {fileID: 2110225555}
-  PlayerWX: {fileID: 1776305986}
-  PlayerWZ: {fileID: 2121270029}
-  PlayerWY: {fileID: 1759575330}
+  PlayerC: {fileID: 0}
+  PlayerTE: {fileID: 0}
+  PlayerG: {fileID: 0}
+  PlayerQB: {fileID: 0}
+  PlayerHB: {fileID: 0}
+  PlayerWX: {fileID: 0}
+  PlayerWZ: {fileID: 0}
+  PlayerWY: {fileID: 0}
 --- !u!4 &1827549001
 Transform:
   m_ObjectHideFlags: 0
@@ -2485,15 +2518,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53b52f9b8b274f999c93d71a6cd4be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: Bo Jackson
+  PlayerName: 
   PlayerNum: 
   Position: 0
-  Weight: 227
+  Weight: 0
   Strength: 0
-  Acceleration: 85
-  Speed: 90
+  Acceleration: 0
+  Speed: 0
   Awareness: 0
-  Agility: 31
+  Agility: 0
   ThrowingPower: 0
   ThrowingSpeed: 0
   ThrowingAccuracy: 0
@@ -2560,8 +2593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: .00999999978
-  closeToTouchThreshold: .100000001
+  positionReachedThreshold: 0
+  closeToTouchThreshold: 0
   Football: {fileID: 0}
 --- !u!1 &2121270029
 GameObject:
@@ -2610,15 +2643,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53b52f9b8b274f999c93d71a6cd4be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: Bo Jackson
+  PlayerName: 
   PlayerNum: 
-  Position: 1
-  Weight: 227
+  Position: 0
+  Weight: 0
   Strength: 0
-  Acceleration: 85
-  Speed: 90
+  Acceleration: 0
+  Speed: 0
   Awareness: 0
-  Agility: 31
+  Agility: 0
   ThrowingPower: 0
   ThrowingSpeed: 0
   ThrowingAccuracy: 0
@@ -2685,6 +2718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b50986e37464b7f8d27466f1a626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionReachedThreshold: .00999999978
-  closeToTouchThreshold: .100000001
+  positionReachedThreshold: 0
+  closeToTouchThreshold: 0
   Football: {fileID: 0}
